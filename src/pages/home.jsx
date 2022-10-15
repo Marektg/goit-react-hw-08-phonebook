@@ -21,7 +21,7 @@ const ForwardingLink = styled(NavLink)`
 
 const Home = () => {
     const token = useSelector(state => state.token);
-
+    console.log(token);
     return (
         <>
             <AboutApp />

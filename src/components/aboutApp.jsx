@@ -4,7 +4,7 @@ import React from 'react';
 const AboutApp = () => {
     return (
         <>
-            <h3>Welcom in yours online phonebook</h3>
+            <h3>Welcome in yours online phonebook</h3>
         </>
     );
 };

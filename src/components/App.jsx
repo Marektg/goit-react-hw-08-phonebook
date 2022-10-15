@@ -1,28 +1,23 @@
-import ContactForm from "./contactForm";
-import { ContactList } from "./contactList";
-import FilteredUsers from "./filteredUsers";
-
+import React, { Suspense } from 'react';
+import { Outlet } from 'react-router-dom';
+import Loader from './Loader';
+import Navi from './navi';
 
 const App = () => {
-
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      <ContactForm />
-      <FilteredUsers />
-
-      <ContactList />
-
-    </div>
+    <>
+      <div>
+       
+        <Navi />
+      </div>
+      <div>
+        <Suspense fallback={<Loader />}>
+          <Outlet />
+        </Suspense>
+      </div>
+    
+      
+    </>
   );
 };
 

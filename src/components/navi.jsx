@@ -5,7 +5,24 @@ import { useNavigate } from 'react-router-dom';
 import { deleteToken } from '../redux/tokenSlice';
 import { deleteUser } from 'redux/userSlice';
 import { useLogoutMutation } from 'services/phonebookApi';
-import { StyledLink } from './MainNav.styled';
+import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
+
+const StyledLink = styled(NavLink)`
+    width: 100%;
+    color: #000;
+    font-size: 0.8em;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-decoration: none;
+      &:hover {
+        color: blue;
+        box-shadow: 0px 10px 8px 0px rgba(80, 80, 80, 0.75);
+        background-color: burlywood;
+  }`;
+
+
 
 function Navi() {
     const token = useSelector(state => state.token);
