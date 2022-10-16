@@ -40,6 +40,7 @@ export const ContactList = () => {
                         borderRadius: "15px",
                         letterSpacing: "2px",
                         backgroundClip: "#f8b4c0",
+                        cursor: "pointer",
                     }
                 }>
                 Delete

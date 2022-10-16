@@ -1,12 +1,38 @@
-// import Cookies from 'js-cookie';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { addToken } from 'redux/tokenSlice';
 import { addUser } from 'redux/userSlice';
 import { useLoginMutation } from 'services/phonebookApi';
-// import { LoginForm } from './Login.styled';
 import getFromLocalStorage from 'utilites/getFromLocalStore';
+import styled from 'styled-components';
+
+const Wrapper = styled.section`
+width: 60%;
+margin-left:20%;
+padding: 40px;
+display: block;
+border: 10px solid #eac748;
+  background-color: #eceda0;
+
+`;
+
+const FormCell = styled.div`
+padding:5px;
+display: flex;
+  justify-content: flex-start;
+  `;
+
+const StylLabel= styled.label`
+    margin-left: 15%;
+    display: grid;
+grid-template-columns: 30% 70%;
+grid-gap:20px;
+& input {
+    width: 300px;
+    margin-left:10px;
+}
+`;
 
 const Login = () => {
     const [login] = useLoginMutation();
@@ -43,18 +69,18 @@ const Login = () => {
     };
 
     return (
-        <>
+        <Wrapper>
             
                 <h2>Login</h2>
                 <form onSubmit={submitHandler}>
-                    <div>
-                        <label>
+                    <FormCell>
+                    <StylLabel>
                             E-mail
                             <input type="email" name="email" autoComplete="email" required />
-                        </label>
-                    </div>
-                    <div>
-                        <label>
+                    </StylLabel>
+                    </FormCell>
+                    <FormCell>
+                    <StylLabel>
                             Password
                             <input
                                 type="password"
@@ -62,12 +88,12 @@ const Login = () => {
                                 autoComplete="current-password"
                                 required
                             />
-                        </label>
-                    </div>
+                    </StylLabel>
+                    </FormCell>
                     <button type="submit">Log in</button>
                 </form>
             
-        </>
+        </Wrapper>
     );
 };
 

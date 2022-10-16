@@ -2,12 +2,37 @@ import React from 'react';
 import { useSignupMutation } from 'services/phonebookApi';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-// import { warningNotify } from 'utils/notifications';
-// import Cookies from 'js-cookie';
 import { addUser } from 'redux/userSlice';
 import { addToken } from 'redux/tokenSlice';
-// import { RegistrationForm } from './Registration.styled';
 import getFromLocalStorage from 'utilites/getFromLocalStore';
+import styled from 'styled-components';
+
+const Wrapper = styled.section`
+width: 60%;
+margin-left:20%;
+padding: 40px;
+display: block;
+border: 10px solid #eac748;
+  background-color: #eceda0;
+
+`;
+
+const FormCell = styled.div`
+padding:5px;
+display: flex;
+  justify-content: flex-start;
+  `;
+
+const StylLabel = styled.label`
+    margin-left: 15%;
+    display: grid;
+grid-template-columns: 30% 70%;
+grid-gap: 20px;
+& input {
+    width: 300px;
+    margin-left:10px;
+}
+`;
 
 const Registration = () => {
     const [signup] = useSignupMutation();
@@ -52,24 +77,24 @@ const Registration = () => {
     };
 
     return (
-        <>
+        <Wrapper>
           
                 <h2>Registration</h2>
                 <form onSubmit={submitHandler}>
-                    <div>
-                        <label>
+                <FormCell>
+                    <StylLabel>
                             First name
                             <input type="text" name="firstName" required />
-                        </label>
-                    </div>
-                    <div>
-                        <label>
+                    </StylLabel>
+                </FormCell>
+                <FormCell>
+                    <StylLabel>
                             Last name
                             <input type="text" name="lastName" required />
-                        </label>
-                    </div>
-                    <div>
-                        <label>
+                    </StylLabel>
+                    </FormCell>
+                    <FormCell>
+                    <StylLabel>
                             E-mail
                             <input
                                 type="email"
@@ -78,10 +103,10 @@ const Registration = () => {
                                 autoComplete="email"
                                 required
                             />
-                        </label>
-                    </div>
-                    <div>
-                        <label>
+                    </StylLabel>
+                    </FormCell>
+                    <FormCell>
+                    <StylLabel>
                             Password
                             <input
                                 type="password"
@@ -91,10 +116,10 @@ const Registration = () => {
                                 autoComplete="new-password"
                                 required
                             />
-                        </label>
-                    </div>
-                    <div>
-                        <label>
+                    </StylLabel>
+                    </FormCell>
+                    <FormCell>
+                    <StylLabel>
                             Confirm password
                             <input
                                 type="password"
@@ -104,12 +129,12 @@ const Registration = () => {
                                 autoComplete="new-password-confirm"
                                 required
                             />
-                        </label>
-                    </div>
-                    <button type="submit">Sign up</button>
+                    </StylLabel>
+                    </FormCell>
+                    <button type="submit" style={{ cursor: "pointer", marginTop: "20px"}}>Sign up</button>
                 </form>
           
-        </>
+        </Wrapper>
     );
 };
 
